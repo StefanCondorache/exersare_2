@@ -5,20 +5,11 @@ def CMMDC(x , y):
         return CMMDC(y, x % y)
 n=int(input("n> "))
 m=int(input("m> "))
-def verfificare(x,y):
+def verificare(x,y):
     if x<y:
-        if CMMDC(x,y)==CMMDC(x,y-x):
-            return 'm>n',True
-        else:
-            return 'm>n',False 
+        return CMMDC(x,y-x)
     if x>y:
-        if CMMDC(x,y)==CMMDC(x-y,y):
-            return 'm>n',True
-        else:
-            return 'm>n',False
+        return CMMDC(x-y,y)
     if x==y:
-        if CMMDC(x,y)==CMMDC(x-y,y):
-            return 'm>n',True
-        else:
-            return 'm>n',False
-
+        return x
+print(verificare(m,n))
