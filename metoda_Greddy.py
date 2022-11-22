@@ -18,12 +18,24 @@ for i in range(int(input('cate obiecte vor fi in total> '))):
 obiecte_indice_sort=obiecte_indice.copy()
 obiecte_indice_sort.sort(reverse=True)
 
-print('obiecte_volum - ',obiecte_volum,'\n','obiecte_indice_sort - ',obiecte_indice_sort)
+i=0                                                                                 
+suma=0
 
-for i in obiecte_indice_sort:
-    if sum(rucsac)<=volum_rucsac and sum(rucsac)+obiecte_volum[obiecte_indice.index(i)]<=volum_rucsac :
-        rucsac.append(obiecte_volum[obiecte_indice.index(i)])
+while sum(rucsac)<=volum_rucsac and i!=len(obiecte_indice_sort):                                                # <<<<<<<< pentru obiecte infinite
+    if sum(rucsac)+obiecte_volum[obiecte_indice.index(obiecte_indice_sort[i])]<=volum_rucsac:
+        rucsac.append(obiecte_volum[obiecte_indice.index(obiecte_indice_sort[i])])
+        suma+=obiecte_pret[obiecte_indice.index(obiecte_indice_sort[i])]
     else:
-        obiecte_volum.remove(obiecte_volum[obiecte_indice.index(i)])
+        i+=1
 
-print('rucsac - ',rucsac)
+print(f'volumul total care a incaput este {sum(rucsac)} cu volumele {rucsac}')
+print(f'suma totala este {suma}')
+#print('obiecte_volum - ',obiecte_volum,'\n','obiecte_indice_sort - ',obiecte_indice_sort)                      #<<<<<< pentru obiecte finite
+
+#for i in obiecte_indice_sort:
+    #if sum(rucsac)<=volum_rucsac and sum(rucsac)+obiecte_volum[obiecte_indice.index(i)]<=volum_rucsac :
+    #    rucsac.append(obiecte_volum[obiecte_indice.index(i)])
+    #else:
+    #    obiecte_volum.remove(obiecte_volum[obiecte_indice.index(i)])
+
+#print('rucsac - ',rucsac)
